@@ -39,4 +39,22 @@ public class TrackerTest {
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
     }
+
+    @Test
+    public void whenThreeItemDelete() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item();
+        bug.setName("Bug");
+        tracker.add(bug);
+
+        Item bug1 = new Item();
+        tracker.add(bug1);
+        Item bug2 = new Item();
+        tracker.add(bug2);
+
+        int id = bug.getId();
+        tracker.delete(id);
+
+        assertThat(tracker.findById(id), is(nullValue()));
+    }
 }
