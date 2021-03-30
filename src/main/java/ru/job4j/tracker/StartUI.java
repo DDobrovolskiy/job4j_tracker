@@ -37,7 +37,7 @@ public class StartUI {
 
     private static void showItems(Item[] array) {
         for (Item item : array) {
-            System.out.println(item.toString());
+            System.out.println(item);
         }
     }
 
@@ -80,7 +80,7 @@ public class StartUI {
         int id = input.askInt("Enter id: ");
         Item findItem = tracker.findById(id);
         if (findItem != null) {
-            System.out.println(findItem.toString());
+            System.out.println(findItem);
         } else {
             System.out.println("Заявка с таким id не найдена");
         }
