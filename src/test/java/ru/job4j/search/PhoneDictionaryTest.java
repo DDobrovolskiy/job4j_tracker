@@ -70,4 +70,14 @@ public class PhoneDictionaryTest {
         ArrayList<Person> persons = phones.find("r");
         Assert.assertThat(persons.size(), is(1));
     }
+
+    @Test
+    public void whenNullResultFindByKey() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Petr", "Arsentev", "534872", "Bryansk")
+        );
+        ArrayList<Person> persons = phones.find("Grigory");
+        Assert.assertThat(persons.size(), is(0));
+    }
 }
