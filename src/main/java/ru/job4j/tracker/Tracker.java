@@ -20,18 +20,17 @@ public class Tracker {
     }
 
     public List<Item> findAll() {
-        return items;
+        return List.copyOf(items);
     }
 
     public List<Item> findByName(String key) {
         List<Item> rsl = new ArrayList<>();
-        for (Item item :
-                items) {
+        for (Item item : items) {
             if (item.getName().equals(key)) {
                 rsl.add(item);
             }
         }
-        return rsl;
+        return List.copyOf(rsl);
     }
 
     public boolean replace(int id, Item item) {
