@@ -24,9 +24,9 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        for (Map.Entry<User, List<Account>> user : users.entrySet()) {
-            if (user.getKey().getPassport().equals(passport)) {
-                return user.getKey();
+        for (User user : users.keySet()) {
+            if (user.getPassport().equals(passport)) {
+                return user;
             }
         }
         return null;
@@ -35,8 +35,11 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
             User user = findByPassport(passport);
             if (user != null) {
-                int index = users.get(user).indexOf(new Account(requisite, 0));
-                return users.get(user).get(index);
+                for (Account account : users.get(user)) {
+                    if (account.getRequisite().equals(requisite)) {
+                        return account;
+                    }
+                }
             }
             return null;
     }
@@ -50,11 +53,10 @@ public class BankService {
         } else if (accountSrc.getBalance() < amount) {
             System.out.println("Pff... your need money");
             return false;
-        } else {
-            accountSrc.setBalance(accountSrc.getBalance() - amount);
-            accountDest.setBalance(accountDest.getBalance() + amount);
-            return true;
         }
+        accountSrc.setBalance(accountSrc.getBalance() - amount);
+        accountDest.setBalance(accountDest.getBalance() + amount);
+        return true;
     }
 
     public static void main(String[] args) {
