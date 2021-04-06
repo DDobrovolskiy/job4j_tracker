@@ -16,7 +16,8 @@ env:
 # Отправлять уведомление на почтуyouremail@smtp.ru(Изменить на свою) если сборка упала
 notifications:
   email:
-    recipients: dda.90@mail.ru
+    recipients:
+    - dda.90@mail.ru
     on_success: never # default: change
     on_failure: always # default: always
 
