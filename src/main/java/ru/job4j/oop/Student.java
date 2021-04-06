@@ -4,14 +4,12 @@ public class Student {
     public void music(String lyrics) {
         System.out.println("I can sign a song : " + lyrics);
     }
-    /**
-    Это баян
-     **/
+
     public void accordion() {
         System.out.println("Tra tra tra");
     }
 
-    public void song(){
+    public void song() {
         System.out.println("I believe I can fly");
     }
 

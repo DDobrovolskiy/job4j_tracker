@@ -4,7 +4,7 @@ public class UserStore {
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         User user = null;
         for (User item : users) {
-            if(item.getUsername().equals(login)) {
+            if (item.getUsername().equals(login)) {
                 user = item;
                 break;
             }
@@ -16,7 +16,7 @@ public class UserStore {
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        if(!user.isValid() || (user.getUsername().length() < 3)) {
+        if (!user.isValid() || (user.getUsername().length() < 3)) {
             throw new UserInvalidException("Логин не соответствует шаблону");
         }
         return true;

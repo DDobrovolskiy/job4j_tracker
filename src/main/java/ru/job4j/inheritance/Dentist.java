@@ -6,7 +6,6 @@ public class Dentist extends Doctor {
         super(name, surname, education, birthday, degree);
     }
 
-    public void treat (Teeth teeth){
-
+    public void treat(Teeth teeth) {
     }
 }

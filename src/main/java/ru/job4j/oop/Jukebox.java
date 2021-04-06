@@ -1,9 +1,9 @@
 package ru.job4j.oop;
 
 public class Jukebox {
-    public void music(int position){
+    public void music(int position) {
         String  song = "Песня не найдена";
-        if(position == 1) {
+        if (position == 1) {
             song = "Пусть бегут неуклюже";
         }
         if (position == 2) {

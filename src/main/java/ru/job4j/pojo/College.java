@@ -8,6 +8,8 @@ public class College {
         student.setName("Dmitriy Dobrovolskiy");
         student.setGroup("PS-502");
         student.setEnrollment(new Date());
-        System.out.println("Student: " + student.getName() + "in group " + student.getGroup() + " enrollment: " + student.getEnrollment());
+        System.out.println("Student: " + student.getName()
+                + "in group " + student.getGroup()
+                + " enrollment: " + student.getEnrollment());
     }
 }

@@ -22,13 +22,14 @@ public class Library {
         }
         System.out.println();
         for (int i = 0; i < library.length; i++) {
-            if(library[i].getName().equals("Clean code")) {
+            if (library[i].getName().equals("Clean code")) {
                 print(i);
             }
         }
     }
 
     private static void print(int indexBook) {
-        System.out.println("Book name: " + library[indexBook].getName() + ". Pages :" + library[indexBook].getPages());
+        System.out.println("Book name: " + library[indexBook].getName()
+                + ". Pages :" + library[indexBook].getPages());
     }
 }

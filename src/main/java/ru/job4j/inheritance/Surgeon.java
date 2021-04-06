@@ -6,7 +6,7 @@ public class Surgeon extends Doctor {
         super(name, surname, education, birthday, degree);
     }
 
-    public void cut (Organ organ) {
+    public void cut(Organ organ) {
 
     }
 }

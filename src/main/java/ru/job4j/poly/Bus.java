@@ -1,7 +1,7 @@
 package ru.job4j.poly;
 
-public class Bus implements Transport{
-    private final double PRICE = 44.5;
+public class Bus implements Transport {
+    private final double price = 44.5;
     private int passengers = 0;
     private boolean engine = false;
 
@@ -11,12 +11,12 @@ public class Bus implements Transport{
     }
 
     @Override
-    public void boarding (int passengers) {
+    public void boarding(int passengers) {
         this.passengers += passengers;
     }
 
     @Override
     public double refuel(int litres) {
-        return PRICE * litres;
+        return price * litres;
     }
 }
