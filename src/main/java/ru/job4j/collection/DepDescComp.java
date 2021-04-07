@@ -9,16 +9,9 @@ public class DepDescComp implements Comparator<String> {
         String[] o1array = o1.split("/");
         String[] o2array = o2.split("/");
         rsl = o2array[0].compareTo(o1array[0]);
-        if (rsl == 0) {
-            for (int i = 1; i < Math.min(o1array.length, o2array.length); i++) {
-                rsl = o1array[i].compareTo(o2array[i]);
-                if (rsl != 0) {
-                    return rsl;
-                }
-            }
-        } else {
+        if (rsl != 0) {
             return rsl;
         }
-        return Integer.compare(o1array.length, o2array.length);
+            return o1.compareTo(o2);
     }
 }
