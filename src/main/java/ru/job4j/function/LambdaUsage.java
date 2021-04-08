@@ -9,7 +9,7 @@ public class LambdaUsage {
                     + Integer.parseInt(right)
                     + " : "
                     + Integer.parseInt(left));
-            return Integer.compare(Integer.parseInt(right),Integer.parseInt(left));
+            return Integer.compare(right.length(),left.length());
         };
     }
 }
