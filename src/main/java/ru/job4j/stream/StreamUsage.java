@@ -13,7 +13,7 @@ public class StreamUsage {
         list.add(4);
         list.add(5);
         List<Integer> listFilter = new ArrayList<>();
-        listFilter = list.stream().filter(item -> item >= 0)
+        listFilter = list.stream().filter(item -> item > 0)
                 .peek(System.out::println)
                 .collect(Collectors.toList());
     }
