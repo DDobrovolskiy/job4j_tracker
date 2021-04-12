@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class BulidUserB {
     public static void main(String[] args) {
-        UserB userB = UserB.getBuilder()
+        UserB userB = UserB.userB()
                 .buildId(10)
                 .buildCount(10)
                 .buildName("null")

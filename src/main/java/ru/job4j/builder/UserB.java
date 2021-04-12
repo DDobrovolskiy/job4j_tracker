@@ -11,11 +11,7 @@ public class UserB {
     private String notify;
     private String end;
 
-    public UserB() {
-
-    }
-
-    public static Builder getBuilder() {
+    public static Builder userB() {
         return new Builder();
     }
 
