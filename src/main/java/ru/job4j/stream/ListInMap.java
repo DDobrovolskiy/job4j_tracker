@@ -6,10 +6,11 @@ import java.util.stream.Collectors;
 
 public class ListInMap {
     public static Map<String, Student> convertToMap(List<Student> students) {
-        return students.stream().distinct().collect(
+        return students.stream().collect(
                 Collectors.toMap(
                     student -> student.getSurname(),
-                    student -> student
+                    student -> student,
+                        (oldStudent, newStudent) -> oldStudent
                 )
         );
     }
