@@ -16,4 +16,12 @@ public class Subject {
     public int getScore() {
         return score;
     }
+
+    @Override
+    public String toString() {
+        return "Subject{"
+                + "name='" + name + '\''
+                + ", score=" + score
+                + '}';
+    }
 }
