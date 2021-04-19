@@ -1,6 +1,7 @@
 package ru.job4j.stream;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -8,34 +9,34 @@ import java.util.function.Predicate;
 
 public class EasyStream {
 
-    //private Consumer<Integer> writeValue;
-    private final Consumer<Consumer<Integer>> source;
+    private List<Integer> list;
 
-    private EasyStream(Consumer<Consumer<Integer>> source) {
-        this.source = source;
+    private EasyStream(List<Integer> list) {
+        this.list = new ArrayList<>(list);
     }
 
     public static EasyStream of(List<Integer> list) {
-        return new EasyStream(
-                method -> list.forEach(value -> method.accept(value)));
+        return new EasyStream(list);
     }
 
     public EasyStream map(Function<Integer, Integer> fun) {
-        return new EasyStream(method -> this.source.accept(
-                value -> method.accept(fun.apply(value))));
+        for (int i = 0; i < list.size(); i++) {
+            list.set(i, fun.apply(list.get(i)));
+        }
+        return this;
     }
 
     public EasyStream filter(Predicate<Integer> fun) {
-        return new EasyStream(method -> this.source.accept(value -> {
-            if (fun.test(value)) {
-                method.accept(value);
+        Iterator<Integer> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            if (!fun.test(iterator.next())) {
+                iterator.remove();
             }
-        }));
+        }
+        return this;
     }
 
     public List<Integer> collect() {
-        List<Integer> rsl = new ArrayList<>();
-        this.source.accept(value -> rsl.add(value));
-        return rsl;
+        return List.copyOf(list);
     }
 }
