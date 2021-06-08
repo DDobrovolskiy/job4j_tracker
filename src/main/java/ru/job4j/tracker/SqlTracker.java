@@ -8,44 +8,11 @@ import java.util.List;
 import java.util.Properties;
 
 public class SqlTracker implements Store {
-    private Connection connection;
     private String nameTable = "items";
+    private final Connection connection;
 
-    @Override
-    public void init() {
-        try (InputStream in =
-                     SqlTracker.class.getClassLoader().getResourceAsStream("app.properties")) {
-            Properties config = new Properties();
-            config.load(in);
-            Class.forName(config.getProperty("driver-class-name"));
-            connection = DriverManager.getConnection(
-                    config.getProperty("url"),
-                    config.getProperty("username"),
-                    config.getProperty("password")
-            );
-            createTable(nameTable);
-        } catch (Exception e) {
-            throw new IllegalStateException(e);
-        }
-    }
-
-    private void createTable(String tableName) {
-        String sql = String.format(
-                "create table if not exists %s(%s, %s, %s);",
-                tableName,
-                "id serial primary key",
-                "name text",
-                "created timestamp"
-        );
-        executeSQL(sql);
-    }
-
-    private void executeSQL(String sql) {
-        try (Statement statement = connection.createStatement()) {
-            statement.execute(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public SqlTracker(Connection connection) {
+        this.connection = connection;
     }
 
     @Override

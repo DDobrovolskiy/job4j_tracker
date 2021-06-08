@@ -45,8 +45,7 @@ public class StartUI {
         //actions.add(new ExitAction());
         //new StartUI(output).init(input, tracker, actions);
 
-        try (Store tracker = new SqlTracker()) {
-            tracker.init();
+        try (Store tracker = new SqlTracker(ConnectionSQL.get())) {
             Output output = new ConsoleOutput();
             Input input = new ValidateInput(output, new ConsoleInput());
             List<UserAction> actions = new LinkedList<>();

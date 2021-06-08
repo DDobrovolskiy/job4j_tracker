@@ -8,11 +8,6 @@ public class MemTracker implements Store {
     private List<Item> items = new ArrayList<>();
     private int ids = 1;
 
-    @Override
-    public void init() {
-
-    }
-
     public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
