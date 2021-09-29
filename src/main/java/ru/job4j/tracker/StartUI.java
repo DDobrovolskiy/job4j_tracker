@@ -32,19 +32,6 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        //Output output = new ConsoleOutput();
-        //Input input = new ValidateInput(output, new ConsoleInput());
-        //MemTracker tracker = new MemTracker();
-        //List<UserAction> actions = new LinkedList<>();
-        //actions.add(new CreateAction(output));
-        //actions.add(new ShowAction(output));
-        //actions.add(new EditAction(output));
-        //actions.add(new DeleteAction(output));
-        //actions.add(new FindByIdAction(output));
-        //actions.add(new FindByName(output));
-        //actions.add(new ExitAction());
-        //new StartUI(output).init(input, tracker, actions);
-
         try (Store tracker = new SqlTracker(ConnectionSQL.get())) {
             Output output = new ConsoleOutput();
             Input input = new ValidateInput(output, new ConsoleInput());

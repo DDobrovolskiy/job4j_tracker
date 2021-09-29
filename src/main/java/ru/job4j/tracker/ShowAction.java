@@ -15,9 +15,7 @@ public class ShowAction implements UserAction {
     @Override
     public boolean execute(Input input, Store tracker) {
         out.println("=== Show all items ====");
-        for (Item item : tracker.findAll()) {
-            out.println(item);
-        }
+        tracker.findAll(out::println);
         return true;
     }
 }

@@ -133,6 +133,23 @@ public class SqlTracker implements Store {
     }
 
     @Override
+    public void findAll(Observer<Item> observer) {
+        try (PreparedStatement preparedStatement =
+                     connection.prepareStatement(
+                             "SELECT id, name, created FROM " + nameTable)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                observer.receive(new Item(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getTimestamp("created").toLocalDateTime()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void close() throws Exception {
         if (connection != null) {
             connection.close();

@@ -11,24 +11,6 @@ public class PhoneDictionary {
         this.persons.add(person);
     }
 
-    /**
-     * Вернуть список всех пользователей, который содержат key в любых полях.
-     * @param key Ключ поиска.
-     * @return Список подощедщих пользователей.
-     */
-//   public ArrayList<Person> find(String key) {
-//       ArrayList<Person> result = new ArrayList<>();
-//       for (Person person : persons) {
-//           if (person.getName().contains(key)
-//                   || person.getSurname().contains(key)
-//                   || person.getPhone().contains(key)
-//                   || person.getAddress().contains(key)) {
-//               result.add(person);
-//           }
-//           }
-//       return result;
-//   }
-
     public ArrayList<Person> find(String key) {
         Predicate<Person> findInName = person -> person.getName().contains(key);
         Predicate<Person> findInSurname = person -> person.getSurname().contains(key);

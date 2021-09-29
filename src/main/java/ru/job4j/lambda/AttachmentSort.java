@@ -19,6 +19,5 @@ public class AttachmentSort {
         };
         attachments.sort(comparator);
         System.out.println(attachments);
-        // Здесь создайте компаратор на основании анонимного класса.
     }
 }
