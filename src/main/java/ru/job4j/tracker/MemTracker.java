@@ -19,6 +19,11 @@ public class MemTracker implements Store {
         return index != -1 ? items.get(index) : null;
     }
 
+    @Override
+    public void findAll(Observer<Item> observer) {
+        items.forEach(observer::receive);
+    }
+
     public List<Item> findAll() {
         return List.copyOf(items);
     }
